@@ -12,4 +12,4 @@ spec:
     # Possible values small, medium, large
     nodeSize: small
     # version: "1.20"
-    # minNodeCount: 1
+    minNodeCount: 2
