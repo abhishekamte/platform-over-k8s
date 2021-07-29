@@ -1,0 +1,17 @@
+apiVersion: myplatform.com/v1alpha1
+kind: ClusterClaim
+metadata:
+  name: team-a
+  labels:
+    cluster-owner: abhishekamte
+spec:
+  id: team-a
+  compositionSelector:
+    matchLabels:
+      provider: aws
+      cluster: eks
+  parameters:
+    # Possible values small, medium, large
+    nodeSize: small
+    # version: "1.20"
+    # minNodeCount: 1
