@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: team-a-apps
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: production
+  source:
+    path: team-a-apps
+    repoURL: https://github.com/abhishekamte/platform-over-k8s
+    targetRevision: HEAD
+  destination:
+    server: https://AF4394A7BBCFD2446D2BB34F18AC85F7.sk1.eu-west-3.eks.amazonaws.com
+    namespace: production
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+      allowEmpty: true
+    syncOptions:
+    - CreateNamespace=true
